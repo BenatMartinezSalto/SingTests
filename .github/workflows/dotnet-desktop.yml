@@ -36,22 +36,37 @@
 # For a complete CI/CD sample to get started with GitHub Action workflows for Desktop Applications,
 # refer to https://github.com/microsoft/github-actions-for-desktop-apps
 
-name: .NET Core Desktop
+name: Build and Sign .NET Application
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+on: [push]
 
 jobs:
-
-  build:
-
-    runs-on: windows-latest  # For a list of available runner types, refer to
-                             # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
+  build-and-sign:
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v2
-    - name: Run a script
-      run: echo "Hello, world!"
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '4.6.2' # Ajusta esto a la versión de .NET que estés utilizando
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+
+    - name: Sign Executable
+      run: |
+        $certPassword = "${{ secrets.CERT_PASSWORD }}"
+        $certPath = "./bin/Debug/ConsoleAppSingTest.exe"
+        $exePath = "./bin/Debug/ConsoleAppSingTest.exe"
+        signtool sign /f $certPath /p $certPassword $exePath
+
+    - name: Upload Signed Executable
+      uses: actions/upload-artifact@v2
+      with:
+        name: Signed-Executable
+        path: ./bin/Debug/ConsoleAppSignedTest.exe
