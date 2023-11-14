@@ -53,13 +53,13 @@ jobs:
     - name: Build
       run: msbuild ./ConsoleAppSingTest/ConsoleAppSingTest.sln /p:Configuration=Release /p:Platform="Any CPU"
 
-    - name: Sign Executable
-      run: |
-        $certPassword = "${{ secrets.CERT_PASSWORD }}"
-        $certPath = "./ConsoleAppSingTest/testcert.pfx"
-        $exePath = "./ConsoleAppSingTest/bin/Release/ConsoleAppSingTest.exe"
-        $signtool = "C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool\signtool.exe"
-        & $signtool sign /f $certPath /p $certPassword $exePath
+#    - name: Sign Executable
+#      run: |
+#        $certPassword = "${{ secrets.CERT_PASSWORD }}"
+#        $certPath = "./ConsoleAppSingTest/testcert.pfx"
+#        $exePath = "./ConsoleAppSingTest/bin/Release/ConsoleAppSingTest.exe"
+#        $signtool = "C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool\signtool.exe"
+#        & $signtool sign /f $certPath /p $certPassword $exePath
 
     - name: Upload Signed Executable
       uses: actions/upload-artifact@v2
