@@ -10,6 +10,9 @@ namespace ConsoleAppSingTest
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Esto es una prueba de advertencia de seguridad.");
+            Console.WriteLine("Presiona cualquier tecla para continuar...");
+            Console.ReadKey();
         }
     }
 }
