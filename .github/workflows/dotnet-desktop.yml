@@ -61,7 +61,7 @@ jobs:
     - name: Sign Executable
       run: |
         $certPassword = "${{ secrets.CERT_PASSWORD }}"
-        $certPath = "./bin/Debug/ConsoleAppSingTest.exe"
+        $certPath = "./testcert.pfx"
         $exePath = "./bin/Debug/ConsoleAppSingTest.exe"
         signtool sign /f $certPath /p $certPassword $exePath
 
