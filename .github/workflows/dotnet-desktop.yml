@@ -47,16 +47,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: '4.6.2' # Ajusta esto a la versión de .NET que estés utilizando
-
-    - name: Restore dependencies
-      run: dotnet restore
-
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      run: msbuild ConsoleAppSingTest.sln /p:Configuration=Release /p:Platform="Any CPU"
 
     - name: Sign Executable
       run: |
