@@ -1,0 +1,7 @@
+C:\Projects\SingTests\ConsoleAppSingTest\bin\Debug\ConsoleAppSingTest.exe.config
+C:\Projects\SingTests\ConsoleAppSingTest\bin\Debug\ConsoleAppSingTest.exe
+C:\Projects\SingTests\ConsoleAppSingTest\bin\Debug\ConsoleAppSingTest.pdb
+C:\Projects\SingTests\ConsoleAppSingTest\obj\Debug\ConsoleAppSingTest.csproj.AssemblyReference.cache
+C:\Projects\SingTests\ConsoleAppSingTest\obj\Debug\ConsoleAppSingTest.csproj.CoreCompileInputs.cache
+C:\Projects\SingTests\ConsoleAppSingTest\obj\Debug\ConsoleAppSingTest.exe
+C:\Projects\SingTests\ConsoleAppSingTest\obj\Debug\ConsoleAppSingTest.pdb
