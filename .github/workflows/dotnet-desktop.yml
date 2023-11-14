@@ -46,6 +46,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1
 
     - name: Build
       run: msbuild ConsoleAppSingTest.sln /p:Configuration=Release /p:Platform="Any CPU"
