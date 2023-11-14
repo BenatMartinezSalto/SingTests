@@ -58,7 +58,8 @@ jobs:
         $certPassword = "${{ secrets.CERT_PASSWORD }}"
         $certPath = "./testcert.pfx"
         $exePath = "./bin/Debug/ConsoleAppSingTest.exe"
-        signtool sign /f $certPath /p $certPassword $exePath
+        $signtool = "C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool\signtool.exe"
+        $signtool sign /f $certPath /p $certPassword $exePath
 
     - name: Upload Signed Executable
       uses: actions/upload-artifact@v2
